@@ -1,0 +1,30 @@
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.position-fixed {
+  z-index: 1050;
+}
+.card-raca {
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #ddd;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+  background-color: white;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.card-raca img {
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card-raca:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+

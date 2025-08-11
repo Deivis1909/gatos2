@@ -53,6 +53,22 @@
       <p class="text-white-50">OBS: Luna e Sol na foto</p>
     </div>
   </header>
+  <section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center text-secondary mb-4">Raças de Gatos</h2>
+    <div class="row">
+      <div *ngFor="let raca of racas" class="col-md-4 mb-4">
+        <div class="card card-raca h-100" (click)="selecionarRaca(raca)" style="cursor: pointer;">
+          <img [src]="raca.imagem" class="card-img-top" alt="{{ raca.nome }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ raca.nome }}</h5>
+            <p class="card-text text-muted">{{ raca.descricao | slice:0:60 }}...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Dica principal -->
   <section class="py-5 bg-light">
@@ -106,6 +122,9 @@
          class="img-fluid rounded shadow border border-secondary p-2"
          width="600" />
   </div>
+
+
+
 
 
 
