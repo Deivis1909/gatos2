@@ -1,61 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Vida de Gato</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#!">VIDA DE GATO</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#!">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#!">Informações</a></li>
-          <li class="nav-item"><a class="nav-link" href="#!">Contato</a></li>
-          <li class="nav-item"><a class="nav-link" href="#!">Bem-estar Felino</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- Header com imagem de fundo -->
-  <header class="py-1 bg-image-full text-white text-center" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900'); background-size: cover;">
-    <div class="my-5">
-      <img class="img-fluid rounded-circle shadow mb-1 border border-white"
-           src="assets/img/gurias10.jpg"
-           alt="Luna e Sol"
-           width="300" />
-      <h1 class="fs-3 fw-bolder">Dicas e compartilhamento de tutores</h1>
-      <!-- Seção de cooperação -->
-  <section class="py-3 bg-light">
-    <div class="container my-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 bg-white p-4 rounded shadow border">
-          <h2 class="text-secondary">Cooperação e dicas</h2>
-          <p class="lead text-secondary">Site para cooperação e dicas de tutores para o bem-estar de gatos.</p>
-           <h2 class="lead text-secondary">desca a barra de rolagem pra ver mais</h2>
+<div class="container mt-4 text-center">
+  <h1 class="titulo-gato">Vida de Gato 🐱</h1>
+</div>
+<div class="container mt-4">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let raca of racas">
+      <div class="card card-raca shadow">
+        <img [src]="raca.imagem" class="card-img" [alt]="raca.nome">
+        <div class="card-body">
+          <h5 class="card-title">{{ raca.nome }}</h5>
+          <p class="card-text">{{ raca.descricao | slice:0:60 }}...</p>
+          <button class="btn btn-dark" (click)="abrirModal(raca)">Saiba mais</button>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-  </section>
-
-      <p class="text-white-50">OBS: Luna e Sol na foto</p>
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="modalRaca" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ racaSelecionada?.nome }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img [src]="racaSelecionada?.imagem" class="img-fluid rounded mb-3" [alt]="racaSelecionada?.nome">
+        <p>{{ racaSelecionada?.descricao }}</p>
+      </div>
     </div>
-  </header>
+  </div>
+</div>
 
-  <!-- Dica principal -->
-  <section class="py-5 bg-light">
+<div>
+   <section class="py-5 bg-light">
     <div class="container my-5">
       <div class="row justify-content-center">
         <div class="col-lg-8 bg-white p-4 rounded shadow border">
@@ -79,34 +57,7 @@
       </div>
     </div>
   </section>
-
-
-  <!-- Dica principal -->
-  <section class="py-5 bg-light">
-    <div class="container my-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 bg-white p-4 rounded shadow border">
-          <h2 class="text-secondary">Dica</h2>
-          <p class="lead">
-            Não deixe seu gato passear na rua. <br /><br />
-            Muitas pessoas ainda acreditam que deixar o gato passear sozinho na rua é saudável, mas esse é um erro comum.
-            O ambiente externo não é seguro. Gatos podem contrair doenças, sofrer acidentes ou desaparecer.
-            Prefira enriquecer o ambiente interno com brinquedos e prateleiras para o bem-estar do seu gato.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Imagem com sombra -->
-  <div class="py-5 text-center bg-white">
-    <img src="assets/img/grafico.png"
-         alt="Gráfico"
-         class="img-fluid rounded shadow border border-secondary p-2"
-         width="600" />
-  </div>
-
+</div>
 
 
   <!-- Footer -->
@@ -116,8 +67,3 @@
         <strong>Deivis Beer_Revolution</strong> Website 2025</p>
     </div>
   </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
